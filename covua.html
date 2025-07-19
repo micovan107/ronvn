@@ -18,12 +18,16 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
+      box-sizing: border-box;
+      width: 100%;
     }
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .room-info {
       background: #1e7e34;
@@ -33,6 +37,8 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .room-name {
       font-size: 18px;
@@ -42,12 +48,42 @@
       display: flex;
       justify-content: space-around;
       margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
     }
     .player {
       background: rgba(0,0,0,0.2);
       padding: 10px 15px;
       border-radius: 8px;
       min-width: 200px;
+      flex: 1;
+      min-width: 150px;
+    }
+    
+    /* Media Queries cho responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 10px;
+      }
+      .header {
+        flex-direction: column;
+        align-items: center;
+      }
+      .room-info {
+        flex-direction: column;
+        padding: 10px;
+      }
+      .player-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      .player {
+        width: 100%;
+        max-width: 300px;
+      }
     }
     .player.current {
       background: #28a745;
@@ -70,6 +106,7 @@
       flex-direction: column;
       align-items: center;
       margin-bottom: 20px;
+      width: 100%;
     }
     .board {
       display: grid;
@@ -79,6 +116,7 @@
       margin: 20px auto;
       border: 5px solid #000;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      max-width: 100%;
     }
     .square {
       width: 50px;
@@ -89,6 +127,31 @@
       font-size: 30px;
       cursor: pointer;
       user-select: none;
+    }
+    
+    /* Media Queries cho bàn cờ */
+    @media (max-width: 480px) {
+      .board {
+        grid-template-columns: repeat(8, 35px);
+        grid-template-rows: repeat(8, 35px);
+      }
+      .square {
+        width: 35px;
+        height: 35px;
+        font-size: 22px;
+      }
+    }
+    
+    @media (max-width: 360px) {
+      .board {
+        grid-template-columns: repeat(8, 30px);
+        grid-template-rows: repeat(8, 30px);
+      }
+      .square {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+      }
     }
     .white {
       background-color: #f0d9b5;
@@ -220,6 +283,8 @@
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      width: 100%;
+      box-sizing: border-box;
     }
     .chat-messages {
       height: 200px;
@@ -233,6 +298,31 @@
     .chat-input-container {
       display: flex;
       gap: 10px;
+    }
+    
+    /* Media Queries cho chat */
+    @media (max-width: 768px) {
+      .chat-container {
+        padding: 10px;
+        margin-top: 15px;
+      }
+      .chat-messages {
+        height: 150px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .chat-input-container {
+        flex-direction: column;
+        gap: 5px;
+      }
+      .chat-input {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .chat-send-btn {
+        align-self: flex-end;
+      }
     }
     .chat-input {
       flex: 1;

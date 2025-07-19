@@ -2,6 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="permissions-policy" content="unload=()">
   <title>Trang Quản Trị - Trò chơi Online</title>
   <style>
@@ -15,6 +16,9 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
+      padding: 0 15px;
+      width: 100%;
+      box-sizing: border-box;
     }
     .admin-header {
       display: flex;
@@ -23,6 +27,7 @@
       margin-bottom: 30px;
       padding-bottom: 20px;
       border-bottom: 1px solid rgba(255,255,255,0.2);
+      flex-wrap: wrap;
     }
     .admin-title {
       font-size: 28px;
@@ -32,6 +37,21 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    /* Media Queries cho admin page */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      .admin-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .admin-title {
+        font-size: 24px;
+      }
     }
     .admin-avatar {
       width: 40px;
@@ -64,6 +84,7 @@
       margin-bottom: 20px;
       border-radius: 5px;
       overflow: hidden;
+      flex-wrap: wrap;
     }
     .admin-tab {
       flex: 1;
@@ -73,6 +94,7 @@
       color: white;
       cursor: pointer;
       font-size: 16px;
+      min-width: 120px;
     }
     .admin-tab.active {
       background: #28a745;
@@ -93,7 +115,35 @@
       margin-top: 20px;
       background: rgba(0,0,0,0.2);
       border-radius: 5px;
-      overflow: hidden;
+      overflow-x: auto;
+      display: block;
+    }
+    
+    @media (max-width: 768px) {
+      .admin-tabs {
+        flex-direction: column;
+      }
+      .admin-tab {
+        border-radius: 0;
+        margin-bottom: 2px;
+      }
+      .tab-content {
+        padding: 15px 10px;
+      }
+      .data-table th, .data-table td {
+        padding: 8px 10px;
+        font-size: 14px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .admin-tab {
+        padding: 10px;
+        font-size: 14px;
+      }
+      .tab-content {
+        padding: 10px 5px;
+      }
     }
     .data-table th, .data-table td {
       padding: 12px 15px;
